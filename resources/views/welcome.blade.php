@@ -2,14 +2,15 @@
 
 @section('page-title', 'Curriculum For Life - How To Live Well')
 
-@section('title', 'Curriculum For Life')
+@section('title')
+Curriculum For Life - {{ $foo }}
+@endsection
 
 @section('tasks-list')
-<?php foreach ($tasks as $task) : ?>
-<div>
 <ul>
-<li><?= $task ?></li>
+@foreach($tasks as $task)
+<li>{{ $task }}</li>
+@endforeach
 </ul>
-</div>
-<?php endforeach; ?>
+
 @endsection
