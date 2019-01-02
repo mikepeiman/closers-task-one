@@ -11,17 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-  $tasks = [
-    'Go to the store',
-    'Go to the school',
-    'Go to work'
-  ];
+Route::get('/', 'PagesController@home');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
 
-    return view('welcome', [
-      'tasks' => $tasks,
-      'foo' => 'foobar!'
-    ]);
+/* other uses of controllers: might have
+ProjectsController
+TasksController
+UsersController 
+*/
+
+// Route::get('/', function () {
+//   $tasks = [
+//     'Go to the store',
+//     'Go to the school',
+//     'Go to work'
+//   ];
+
+//     return view('welcome', [
+//       'tasks' => $tasks,
+//       'foo' => 'foobar!'
+//     ]);
+
+
     /* alternate syntax: return view('welcome')->withTasks($tasks)->withFoo('foobar'); */
 
     /* addition further alternate syntax:
@@ -40,13 +52,15 @@ Route::get('/', function () {
         'Go to the school',
         'Go to work'
       ])
+
+      });
     */
-});
 
-Route::get('/contact', function() {
-  return view('contact');
-});
 
-Route::get('/about', function() {
-  return view('about');
-});
+// Route::get('/contact', function() {
+//   return view('contact');
+// });
+
+// Route::get('/about', function() {
+//   return view('about');
+// });
