@@ -27,4 +27,12 @@ class PagesController extends Controller
     public function contact() {
       return view ('contact');
     }
+
+    public function projects() {
+      return view ('projects');
+    }
+
+    public function users() {
+      return view ('users');
+    }
 }

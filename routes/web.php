@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
+Route::get('/projects', 'ProjectsController@projects');
+Route::get('/users', 'UsersController@users');
 
 /* other uses of controllers: might have
 ProjectsController

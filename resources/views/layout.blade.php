@@ -91,6 +91,8 @@
                 <div class="links">
                     <a href="/">Home</a>
                     <a href="/about">About</a>
+                    <a href="/projects">Projects</a>
+                    <a href="/users">Users</a>
                     <a href="/contact">Contact</a>
                 </div>
             </div>
