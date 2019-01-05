@@ -6,7 +6,7 @@
 Users
 @endsection
 
-@section('tasks-list')
+@section('content')
 <ul>
   @foreach($users as $user)
   <li>{{ $user }}</li>

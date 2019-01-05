@@ -6,7 +6,7 @@
 Create a New Project
 @endsection
 
-@section('tasks-list')
+@section('content')
 <form method="POST" action="/projects">
   
   {{ csrf_field() }}

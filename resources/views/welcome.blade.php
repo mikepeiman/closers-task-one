@@ -6,7 +6,7 @@
 Curriculum For Life - {{ $foo }}
 @endsection
 
-@section('tasks-list')
+@section('content')
 <ul>
 @foreach($tasks as $task)
 <li>{{ $task }}</li>
