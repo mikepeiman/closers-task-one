@@ -9,23 +9,33 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-
-GET /projects (index)
-GET /projects/create (create)
-POST /projects (store)
-GET /projects/1/edit (edit)
-PATCH /projects/1 
-DELETE /projects/1
-
 */
 
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
-Route::get('/projects', 'ProjectsController@projects');
-Route::post('/projects', 'ProjectsController@store');
-Route::get('/projects/create', 'ProjectsController@create');
-Route::get('/projects/edit', 'ProjectsController@update');
+
+/*
+GET /projects (index, show entire collection)
+GET /projects/create (create item in collection)
+POST /projects (store - save to DB)
+GET /projects/1 (show one specific item from collection - either page view, or sends JSON via API call)
+GET /projects/1/edit (edit)
+PATCH /projects/1 
+DELETE /projects/1
+*/
+
+// Route::get('/projects', 'ProjectsController@projects');
+// Route::get('/projects/create', 'ProjectsController@create');
+// Route::post('/projects', 'ProjectsController@store');
+// Route::get('/projects/{id}', 'ProjectsController@show');
+// Route::get('/projects/{id}/edit', 'ProjectsController@edit');
+// Route::patch('/projects/{id}', 'ProjectsController@update');
+// Route::delete('/projects/{id}', 'ProjectsController@destroy');
+
+// Laravel's automatic route creation:
+Route::resource('/projects', 'ProjectsController');
+
 Route::get('/users', 'UsersController@users');
 
 /* other uses of controllers: might have
