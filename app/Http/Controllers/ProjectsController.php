@@ -15,9 +15,7 @@ class ProjectsController extends Controller
     public function index()
     {
       $projects = Project::all();
-      return view('projects.index', [
-        'projects' => $projects
-      ]);
+      return view('projects.index', compact('projects'));
     }
 
     /**
@@ -38,10 +36,11 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-      $project = new Project();
-      $project->title = request('title');
-      $project->description = request('description');
-      $project->save();
+      // Project::create(request()->all());
+      // safer not to do that, as a convention
+
+      Project::create(request(['title', 'description']));
+ 
       return redirect('/projects');
     }
 
@@ -53,7 +52,9 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        return view('projects.show');
+        // $project = Project::findOrFail($id);
+        return $project;
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -62,9 +63,9 @@ class ProjectsController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-      $project = Project::findOrFail($id);
+      // $project = Project::findOrFail($id);
       return view('projects.edit', compact('project'));
     }
 
@@ -75,14 +76,15 @@ class ProjectsController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Project $project)
     {
         // dd(request()->all());
-        $project = Project::findOrFail($id);
+        // $project = Project::findOrFail($id);
 
-        $project->title = request('title');
-        $project->description = request('description');
-        $project->save();
+        $project->update(request(['title','description']));
+        // $project->title = request('title');
+        // $project->description = request('description');
+        // $project->save();
 
         return redirect('/projects');
     }
@@ -93,10 +95,10 @@ class ProjectsController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
         // dd('Delete ' . $id);
-        Project::findOrFail($id)->delete();
+        $project->delete();
         return redirect('/projects');
     }
 }

@@ -9,7 +9,11 @@ Projects
 @section('content')
 <ul>
   @foreach($projects as $project)
-  <li>{{ $project }}</li>
+  <li>
+      <h2><b>
+  <a href="/projects/{{ $project->id }}">{{ $project->title }}</a></h2></b>
+    <p>{{ $project->description }}</p>
+  </li>
   @endforeach
   </ul>
 @endsection

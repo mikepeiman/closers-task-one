@@ -12,6 +12,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-      'title', 'description', 'created_at', 'updated_at'
+      'title', 'description'
   ];
+  // can also use protected $guarded = []
 }

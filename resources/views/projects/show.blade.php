@@ -3,9 +3,11 @@
 @section('page-title', 'Projects: Curriculum For Life')
 
 @section('title')
-Show
+{{$project->title}}
 @endsection
 
 @section('content')
-show Project
+<b>    <a href="/projects/{{ $project->id }}">{{ $project->title }}</a></b>
+      <p>{{ $project->description }}</p>
+<a href="/projects/{{ $project->id }}/edit">Edit</a>
 @endsection
